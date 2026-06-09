@@ -11,7 +11,7 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-bg.png"
-          alt="Ambiente do restaurante Sabor & Brasa"
+          alt="Ambiente do restaurante Site-Restaurante"
           fill
           className="object-cover"
           priority
@@ -37,7 +37,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="font-serif text-5xl md:text-7xl lg:text-8xl font-semibold text-foreground mb-6 text-balance"
         >
-          Sabor & Brasa
+          Site-Restaurante
         </motion.h1>
 
         <motion.p

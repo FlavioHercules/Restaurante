@@ -18,7 +18,8 @@ export function Footer() {
           >
             <Link href="#inicio" className="inline-block mb-4">
               <span className="font-serif text-3xl font-semibold text-primary">
-                Sabor & Brasa
+                Site-Restaurante
+
               </span>
             </Link>
             <p className="text-muted-foreground leading-relaxed max-w-md mb-6">
@@ -128,7 +129,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm text-center md:text-left">
-            © {new Date().getFullYear()} Sabor & Brasa. Todos os direitos reservados.
+            © {new Date().getFullYear()} Site-Restaurante. Todos os direitos reservados.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <Link href="#" className="hover:text-primary transition-colors">

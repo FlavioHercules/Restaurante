@@ -39,7 +39,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="#inicio" className="flex items-center gap-2">
             <span className="font-serif text-2xl md:text-3xl font-semibold text-primary">
-              Sabor & Brasa
+              Site-Restaurante
             </span>
           </Link>
 

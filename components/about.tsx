@@ -19,7 +19,7 @@ export function About() {
             <div className="relative h-[500px] lg:h-[600px]">
               <Image
                 src="/images/about-bg.png"
-                alt="Ingredientes premium do Sabor & Brasa"
+                alt="Ingredientes premium do Site-Restaurante"
                 fill
                 className="object-cover"
               />
@@ -39,11 +39,11 @@ export function About() {
               Nossa História
             </span>
             <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-6">
-              Sobre o Sabor & Brasa
+              Sobre o Site-Restaurante    
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Fundado em 2010, o Sabor & Brasa nasceu da paixão por unir a 
+                Fundado em 2010, o Site-Restaurante nasceu da paixão por unir a 
                 tradição das churrasqueiras brasileiras com a sofisticação da 
                 alta gastronomia. Nossa missão é proporcionar momentos 
                 inesquecíveis através de sabores autênticos.

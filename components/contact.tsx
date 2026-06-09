@@ -92,12 +92,12 @@ export function Contact() {
               E-mail
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              <a href="mailto:contato@saborebrasa.com.br" className="hover:text-primary transition-colors break-all">
-                contato@saborebrasa.com.br
+              <a href="mailto:contato@Site-Restaurante.com.br" className="hover:text-primary transition-colors break-all">
+                contato@Site-Restaurante.com.br
               </a>
               <br />
-              <a href="mailto:reservas@saborebrasa.com.br" className="hover:text-primary transition-colors break-all">
-                reservas@saborebrasa.com.br
+              <a href="mailto:reservas@Site-Restaurante.com.br" className="hover:text-primary transition-colors break-all">
+                reservas@Site-Restaurante.com.br
               </a>
             </p>
           </motion.div>
@@ -142,7 +142,7 @@ export function Contact() {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Localização do Sabor & Brasa"
+            title="Localização do Site-Restaurante"
           />
         </motion.div>
       </div>

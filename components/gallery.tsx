@@ -69,7 +69,7 @@ export function Gallery() {
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Conheça nosso ambiente e nossos pratos através de imagens que 
-            capturam a essência da experiência Sabor & Brasa.
+            capturam a essência da experiência Site-Restaurante.
           </p>
         </motion.div>
 

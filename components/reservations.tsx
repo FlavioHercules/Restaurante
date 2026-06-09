@@ -23,7 +23,7 @@ export function Reservations() {
     setIsSubmitting(true)
     
     // Formatar a mensagem para o WhatsApp
-    const message = `Olá! Gostaria de fazer uma reserva no Sabor & Brasa.
+    const message = `Olá! Gostaria de fazer uma reserva no Site-Restaurante.
 
 *Dados da Reserva:*
 - Nome: ${formData.name}
