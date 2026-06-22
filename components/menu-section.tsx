@@ -6,203 +6,172 @@ import { useState } from "react"
 
 type Category = "entradas" | "principais" | "sobremesas" | "bebidas"
 
-const categories: { id: Category; label: string }[] = [
+const categories = [
   { id: "entradas", label: "Entradas" },
   { id: "principais", label: "Pratos Principais" },
   { id: "sobremesas", label: "Sobremesas" },
   { id: "bebidas", label: "Bebidas" },
-]
+] as const
 
-const menuItems: Record<Category, {
-  name: string
-  description: string
-  price: string
-  image: string
-}[]> = {
+const menuItems = {
   entradas: [
     {
       name: "Carpaccio de Filé Mignon",
-      description: "Finas fatias de filé mignon com rúcula, parmesão e redução balsâmica",
+      badge: "Bestseller",
+      description:
+        "Finas fatias de filé mignon com rúcula, parmesão e redução balsâmica.",
       price: "R$ 68,00",
       image: "/images/dish-2.png",
     },
     {
       name: "Burrata com Tomate Confit",
-      description: "Queijo burrata italiano com tomates confitados, pesto e focaccia",
+      badge: "Premium",
+      description:
+        "Queijo burrata italiano com tomates confitados, pesto e focaccia.",
       price: "R$ 72,00",
       image: "/images/dish-6.png",
-    },
-    {
-      name: "Camarões ao Alho",
-      description: "Camarões salteados na manteiga com alho, pimenta e ervas frescas",
-      price: "R$ 85,00",
-      image: "/images/dish-5.png",
     },
   ],
   principais: [
     {
       name: "Picanha Premium 400g",
-      description: "Corte nobre grelhado na brasa com batatas rústicas e chimichurri",
+      badge: "Chef’s Choice",
+      description:
+        "Corte nobre grelhado na brasa com batatas rústicas e chimichurri.",
       price: "R$ 145,00",
       image: "/images/dish-1.png",
     },
     {
-      name: "Filé Mignon ao Molho Madeira",
-      description: "Medalhões de filé com molho madeira, arroz cremoso e legumes",
-      price: "R$ 158,00",
-      image: "/images/dish-1.png",
-    },
-    {
       name: "Salmão Grelhado",
-      description: "Filé de salmão com crosta de ervas, risoto de limão siciliano",
+      badge: "Novo",
+      description:
+        "Filé de salmão com crosta de ervas e risoto de limão siciliano.",
       price: "R$ 128,00",
       image: "/images/dish-4.png",
-    },
-    {
-      name: "Costela no Bafo",
-      description: "Costela bovina cozida lentamente por 12 horas com especiarias",
-      price: "R$ 165,00",
-      image: "/images/dish-1.png",
-    },
-    {
-      name: "Lagosta Grelhada",
-      description: "Lagosta fresca grelhada na manteiga de ervas com aspargos",
-      price: "R$ 285,00",
-      image: "/images/dish-5.png",
     },
   ],
   sobremesas: [
     {
       name: "Petit Gâteau",
-      description: "Bolo de chocolate com centro cremoso, sorvete de baunilha e ouro",
+      badge: "Signature",
+      description:
+        "Chocolate com centro cremoso e sorvete de baunilha.",
       price: "R$ 42,00",
-      image: "/images/dish-3.png",
-    },
-    {
-      name: "Crème Brûlée",
-      description: "Creme francês de baunilha com casquinha caramelizada",
-      price: "R$ 38,00",
-      image: "/images/dish-3.png",
-    },
-    {
-      name: "Tiramisù",
-      description: "Clássico italiano com mascarpone, café espresso e cacau",
-      price: "R$ 45,00",
       image: "/images/dish-3.png",
     },
   ],
   bebidas: [
     {
       name: "Vinho Tinto Reserva",
-      description: "Malbec argentino - garrafa 750ml",
+      badge: "Reserva",
+      description: "Malbec argentino - garrafa 750ml.",
       price: "R$ 189,00",
-      image: "/images/gallery-2.png",
-    },
-    {
-      name: "Vinho Branco Chardonnay",
-      description: "Chileno safra especial - garrafa 750ml",
-      price: "R$ 165,00",
-      image: "/images/gallery-2.png",
-    },
-    {
-      name: "Whisky 12 Anos",
-      description: "Single malt escocês - dose 50ml",
-      price: "R$ 48,00",
-      image: "/images/gallery-2.png",
-    },
-    {
-      name: "Água com Gás Premium",
-      description: "Garrafa 500ml",
-      price: "R$ 12,00",
       image: "/images/gallery-2.png",
     },
   ],
 }
 
 export function MenuSection() {
-  const [activeCategory, setActiveCategory] = useState<Category>("entradas")
+  const [activeCategory, setActiveCategory] =
+    useState<Category>("entradas")
 
   return (
     <section id="cardapio" className="py-24 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm uppercase tracking-[0.3em] mb-4 block">
+          <span className="text-primary text-sm uppercase tracking-[0.35em] mb-4 block">
             Nossa Seleção
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-4">
+
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold mb-4">
             Cardápio
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Ingredientes selecionados e preparos artesanais para uma experiência 
-            gastronômica única.
+
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            Ingredientes selecionados e preparos artesanais para uma
+            experiência gastronômica única.
           </p>
         </motion.div>
 
-        {/* Category Tabs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
+        {/* Tabs */}
+        <div className="flex flex-wrap justify-center gap-4 mb-14">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-3 text-sm uppercase tracking-wider transition-all duration-200 ${
+              className={`px-7 py-3 rounded-full text-sm uppercase tracking-wider transition-all duration-300 ${
                 activeCategory === category.id
-                  ? "bg-primary text-primary-foreground"
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
                   : "border border-border text-foreground/70 hover:border-primary hover:text-primary"
               }`}
             >
               {category.label}
             </button>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Menu Items */}
+        {/* Cards */}
         <motion.div
           key={activeCategory}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
           className="grid md:grid-cols-2 gap-6"
         >
           {menuItems[activeCategory].map((item, index) => (
             <motion.div
               key={item.name}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="flex gap-4 p-4 bg-card border border-border hover:border-primary/50 transition-all duration-300 group"
+              transition={{ delay: index * 0.08 }}
+              whileHover={{ y: -5 }}
+              className="
+                group rounded-2xl
+                bg-card/80 backdrop-blur-md
+                border border-border
+                p-5
+                hover:border-primary/40
+                hover:shadow-2xl hover:shadow-primary/10
+                transition-all duration-500
+              "
             >
-              <div className="relative w-24 h-24 shrink-0 overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="flex-1">
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <h3 className="font-serif text-lg font-semibold text-foreground">
-                    {item.name}
-                  </h3>
-                  <span className="text-primary font-semibold shrink-0">
-                    {item.price}
-                  </span>
+              <div className="flex gap-5">
+                <div className="relative w-32 h-32 rounded-2xl overflow-hidden shrink-0">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
                 </div>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {item.description}
-                </p>
+
+                <div className="flex-1">
+                  <span className="text-primary text-xs uppercase tracking-widest">
+                    {item.badge}
+                  </span>
+
+                  <div className="flex items-start justify-between gap-3 mt-2 mb-3">
+                    <h3 className="font-serif text-xl font-semibold">
+                      {item.name}
+                    </h3>
+
+                    <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm">
+                      {item.price}
+                    </span>
+                  </div>
+
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                    {item.description}
+                  </p>
+
+                  <button className="text-primary text-sm uppercase tracking-wider hover:translate-x-1 transition-transform">
+                    Ver detalhes →
+                  </button>
+                </div>
               </div>
             </motion.div>
           ))}

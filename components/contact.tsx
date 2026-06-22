@@ -1,151 +1,152 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react"
 
 export function Contact() {
   return (
-    <section id="contato" className="py-24 px-4 bg-secondary/30">
+    <section id="contato" className="py-28 px-4 bg-secondary/20">
       <div className="max-w-7xl mx-auto">
+
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm uppercase tracking-[0.3em] mb-4 block">
-            Fale Conosco
-          </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-4">
+          <span className="text-primary text-sm uppercase tracking-[0.35em] block mb-4">
             Contato
+          </span>
+
+          <h2 className="font-serif text-4xl md:text-6xl font-semibold mb-4">
+            Fale Conosco
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Estamos à disposição para atendê-lo. Entre em contato através 
-            dos canais abaixo ou faça-nos uma visita.
+
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            Atendimento reservado para reservas, eventos privados e experiências gastronômicas exclusivas.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Address */}
+        <div className="grid lg:grid-cols-3 gap-8">
+
+          {/* VISIT EXPERIENCE (novo destaque) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-card border border-border p-8 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            className="
+              lg:col-span-1
+              rounded-3xl
+              bg-card/70
+              backdrop-blur-xl
+              border border-primary/20
+              p-8
+            "
           >
-            <div className="w-14 h-14 bg-primary/10 mx-auto mb-6 flex items-center justify-center">
-              <MapPin className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
-              Endereço
+            <h3 className="font-serif text-2xl mb-4">
+              Visite a Aurora Prime
             </h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Av. Brigadeiro Faria Lima, 1234
-              <br />
-              Itaim Bibi - São Paulo, SP
-              <br />
-              CEP: 01452-001
+
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              Localizada em um ambiente discreto no Distrito Gastronômico de São Paulo,
+              a Aurora Prime foi projetada para oferecer privacidade, silêncio e uma
+              experiência sensorial completa.
             </p>
+
+            <div className="space-y-4 text-sm text-muted-foreground">
+              <div className="flex gap-3">
+                <MapPin className="text-primary" />
+                <span>
+                  Av. Aurora, 1088 — SP
+                </span>
+              </div>
+
+              <div className="flex gap-3">
+                <Clock className="text-primary" />
+                <span>
+                  Ter a Dom • 12h às 23h
+                </span>
+              </div>
+            </div>
+
+            <button className="mt-6 w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3 rounded-xl hover:scale-[1.02] transition">
+              Reservar Agora <ArrowRight size={16} />
+            </button>
           </motion.div>
 
-          {/* Phone */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-card border border-border p-8 text-center"
-          >
-            <div className="w-14 h-14 bg-primary/10 mx-auto mb-6 flex items-center justify-center">
-              <Phone className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
-              Telefone
-            </h3>
-            <p className="text-muted-foreground leading-relaxed">
-              <a href="tel:+551132634567" className="hover:text-primary transition-colors">
-                (11) 3263-4567
-              </a>
-              <br />
-              <a href="tel:+5511999887766" className="hover:text-primary transition-colors">
-                (11) 99988-7766
-              </a>
-              <br />
-              <span className="text-sm">(WhatsApp)</span>
-            </p>
-          </motion.div>
+          {/* CONTACT CARDS */}
+          <motion.div className="lg:col-span-2 grid md:grid-cols-2 gap-6">
 
-          {/* Email */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-card border border-border p-8 text-center"
-          >
-            <div className="w-14 h-14 bg-primary/10 mx-auto mb-6 flex items-center justify-center">
-              <Mail className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
-              E-mail
-            </h3>
-            <p className="text-muted-foreground leading-relaxed">
-              <a href="mailto:contato@Site-Restaurante.com.br" className="hover:text-primary transition-colors break-all">
-                contato@Site-Restaurante.com.br
+            <Card icon={<Phone />} title="Telefone">
+              <a href="tel:+5511999999999" className="hover:text-primary transition">
+                (11) 99999-9999
               </a>
-              <br />
-              <a href="mailto:reservas@Site-Restaurante.com.br" className="hover:text-primary transition-colors break-all">
-                reservas@Site-Restaurante.com.br
-              </a>
-            </p>
-          </motion.div>
+              <p className="text-xs text-muted-foreground mt-1">
+                Atendimento via WhatsApp disponível
+              </p>
+            </Card>
 
-          {/* Hours */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-card border border-border p-8 text-center"
-          >
-            <div className="w-14 h-14 bg-primary/10 mx-auto mb-6 flex items-center justify-center">
-              <Clock className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
-              Funcionamento
-            </h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Terça a Quinta: 12h - 23h
+            <Card icon={<Mail />} title="E-mail">
+              <a href="mailto:contato@auroraprime.com" className="hover:text-primary transition break-all">
+                contato@auroraprime.com
+              </a>
               <br />
-              Sexta e Sábado: 12h - 00h
-              <br />
-              Domingo: 12h - 17h
-            </p>
+              <a href="mailto:reservas@auroraprime.com" className="hover:text-primary transition break-all">
+                reservas@auroraprime.com
+              </a>
+            </Card>
+
+            <Card icon={<Clock />} title="Horários">
+              Terça a Quinta: 12h – 15h<br />
+              Sexta e Sábado: 12h – 23h30<br />
+              Domingo: 12h – 17h
+            </Card>
+
+            <Card icon={<MapPin />} title="Experiência">
+              Ambiente intimista, iluminação baixa e foco total na experiência gastronômica.
+              Ideal para jantares especiais e encontros privados.
+            </Card>
+
           </motion.div>
         </div>
-
-        {/* Map Placeholder */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 h-80 bg-card border border-border overflow-hidden"
-        >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0976951333147!2d-46.67711692379!3d-23.56714406230!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5763f5c5c8e7%3A0x4e2d5c5c5c5c5c5c!2sAv.%20Brg.%20Faria%20Lima%2C%201234%20-%20Itaim%20Bibi%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Localização do Site-Restaurante"
-          />
-        </motion.div>
       </div>
     </section>
+  )
+}
+
+/* ---------------- CARD ---------------- */
+
+function Card({
+  icon,
+  title,
+  children,
+}: {
+  icon: React.ReactNode
+  title: string
+  children: React.ReactNode
+}) {
+  return (
+    <motion.div
+      whileHover={{ y: -4 }}
+      className="
+        rounded-2xl
+        bg-card/60
+        backdrop-blur-xl
+        border border-primary/10
+        p-6
+        hover:border-primary/30
+        hover:shadow-lg hover:shadow-primary/10
+        transition-all duration-300
+      "
+    >
+      <div className="flex items-center gap-3 mb-4 text-primary">
+        {icon}
+        <h3 className="font-serif text-xl text-foreground">{title}</h3>
+      </div>
+
+      <div className="text-sm text-muted-foreground leading-relaxed">
+        {children}
+      </div>
+    </motion.div>
   )
 }
